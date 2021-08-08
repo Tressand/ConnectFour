@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(31, 31, 34);
+}
+
+button {
+  position: absolute;
+  top: clamp(71vh, 88vw, 89vh);
+  left: 7vw;
+  display: block;
+  border-radius: 2rem;
+  padding: 1%;
+  border: solid black;
+  font-size: clamp(2.3rem, 6vw, 2.5rem);
+  margin: auto;
+}
+
+button:active {
+  background-color: gray;
+}
+
+.tablero {
+  position: absolute;
+  width: clamp(70vh, 86vw, 88vh); /* calc(7 * 7rem) */
+  height: clamp(62vh, 78vw, 80vh); /* calc(6 * 7rem) */
+  top: 7vh;
+  left: 7vw;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.arriba {
+  z-index: 2;
+  background-color: transparent;
+}
+
+.hueco {
+  background-color: rgb(41, 41, 250);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ficha {
+  background-color: rgb(31, 31, 34);
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.columna {
+  width: 100%;
+  grid-row: 1 / 7;
+  opacity: 0;
+  background-color: rgb(197, 22, 22);
+}
+
+.columna:hover {
+  opacity: 0.5;
+}
+
+.rojo {
+  background-color: rgb(134, 19, 19);
+}
+
+.amarillo {
+  background-color: rgb(192, 165, 11);
+}
+
+.destacar {
+  animation-name: titilar;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes titilar {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(300%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
